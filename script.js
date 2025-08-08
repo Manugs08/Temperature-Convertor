@@ -14,30 +14,29 @@ let object=[{
     Value:""
 }]
 
-unitContainer.forEach(unit=>{
-    let selected=false;
-    unit.addEventListener("click",()=>{
-        let list;
-        let arrow;
-        if(unit.classList.contains("containerFrom")){
-            list=document.querySelector(".listFrom");
-            arrow=document.querySelector(".arrowFrom");
-        } else if(unit.classList.contains("containerTo")){
-            list=document.querySelector(".listTo");
-            arrow=document.querySelector(".arrowTo");
+unitContainer.forEach(unit => {
+    unit.addEventListener("click", () => {
+        let list, arrow;
+
+        if (unit.classList.contains("containerFrom")) {
+            list = document.querySelector(".listFrom");
+            arrow = document.querySelector(".arrowFrom");
+        } else if (unit.classList.contains("containerTo")) {
+            list = document.querySelector(".listTo");
+            arrow = document.querySelector(".arrowTo");
         }
-        if(!selected){
-            list.style.display="block";
-            arrow.textContent="arrow_drop_up";
-            selected=true;
-        } else{
-            list.style.display="none";
-            arrow.textContent="arrow_drop_down";
-            selected=false;
+
+        const isOpen = list.style.display === "block";
+
+        if (!isOpen) {
+            list.style.display = "block";
+            arrow.textContent = "arrow_drop_up";
+        } else {
+            list.style.display = "none";
+            arrow.textContent = "arrow_drop_down";
         }
-    })
-}
-)
+    });
+});
 
 options.forEach(option=>{
     option.addEventListener("click",()=>{
@@ -71,9 +70,11 @@ const getValue=()=>{
 convert.addEventListener("click",()=>{
     if(temp.value!=="" && object[0].Value!=="" && object[1].Value!==""){
         getValue();
-        unitContainer.forEach(unit=>{
-            unit.click();
-        })
+        document.querySelector(".listFrom").style.display = "none";
+        document.querySelector(".arrowFrom").textContent = "arrow_drop_down";
+        
+        document.querySelector(".listTo").style.display = "none";
+        document.querySelector(".arrowTo").textContent = "arrow_drop_down";
     } 
     else{
         document.querySelector(".msg").innerHTML=`<span style="color: red;">Fill all 3 fields</span>`
