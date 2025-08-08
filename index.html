@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <title>Temperature Convertor</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Temperature Converter</h1>
+        <p>Enter the temperature, select units and submit</p>
+        <div class="inputContainer">
+            <div class="tempContainer">
+                <input type="number" id="temp" placeholder="0.00">
+            </div>
+            <div class="changeContainer">
+                <div class="unitContainer containerFrom">
+                    <span class="unitPlaceholerFrom">From Unit</span>
+                    <span class="material-symbols-outlined arrowFrom">arrow_drop_down</span>
+                </div>
+                <ul class="unitList listFrom">
+                    <li class="unitItem from" data-value="Fahrenheit" >Fahrenheit</li>
+                    <li class="unitItem from" data-value="Celseus"    >Celseus</li>
+                    <li class="unitItem from" data-value="Kelvin"     >Kelvin</li>
+                </ul>
+            </div>
+            <div class="changeContainer">
+                <div class="unitContainer containerTo">
+                    <span class="unitPlaceholerTo">To Unit</span>
+                    <span class="material-symbols-outlined arrowTo">arrow_drop_down</span>
+                </div>
+                <ul class="unitList listTo">
+                    <li class="unitItem to" data-value="Fahrenheit">Fahrenheit</li>
+                    <li class="unitItem to" data-value="Celseus">Celseus</li>
+                    <li class="unitItem to" data-value="Kelvin">Kelvin</li>
+                </ul>
+            </div>
+            <button class="btn">Convert</button>
+        </div>
+        <p class="msg">Probando</p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
